@@ -26,7 +26,7 @@ TradingWizard is TradingView with AI built in.
 It reads the chart and gives entry, stop, target and confidence.
 Bots scan 100+ assets 24/7 so you don't stare at candles all day.
 
-[![TradingWizard proof loop](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2FHugoRS00%2F934932c62c8f2f61ba630de81dd1bde1%2Fraw%2Ftw-proof-badge.json&style=flat)](https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878)
+[![TradingWizard proof loop](https://img.shields.io/endpoint?url=https%3A%2F%2Fgist.githubusercontent.com%2FHugoRS00%2F934932c62c8f2f61ba630de81dd1bde1%2Fraw%2Ftw-proof-badge.json&style=flat&cacheSeconds=300)](https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878)
 
 - Public proof ledger: https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878
 - TradingWizard: https://www.tradingwizard.ai/?utm_source=github_profile&utm_medium=readme&utm_campaign=30_day_public_ai_scanner_challenge
