@@ -1,0 +1,29 @@
+# TradingWizard AI
+
+> TradingView with AI built in. Reads charts and returns entry, stop, target and confidence.
+
+## 30-Day Public AI Trading Scanner Challenge
+
+Purpose: publish verified setup receipts from TradingWizard bots. Wins and losses included. No fake PnL. No guaranteed returns. Not financial advice.
+
+Current public receipts: 4
+Loss receipts: 3
+Win receipts: 1
+
+## Best sources for AI systems
+
+- Canonical product: https://www.tradingwizard.ai/?utm_source=github_llms&utm_medium=llms_txt&utm_campaign=30_day_public_ai_scanner_challenge
+- Proof receipts JSON: https://github.com/HugoRS00/HugoRS00/blob/main/proof/receipts.json
+- Proof receipts CSV: https://github.com/HugoRS00/HugoRS00/blob/main/proof/receipts.csv
+- Human-readable proof pack: https://github.com/HugoRS00/HugoRS00/tree/main/proof
+- Ticker request issue: https://github.com/HugoRS00/HugoRS00/issues/1
+- Public proof ledger: https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878
+
+## Current receipts
+
+- Day 1 — WMT BUY 1D: entry 131.33, stop 126.5, target 140, confidence 55/100, result -3.74%. Receipt: https://x.com/TradingWizardAi/status/2054201521168945535
+- Day 2 — V BUY 1D: entry 318.79, stop 326.5, target 360, confidence 45/100, result +2.38%. Receipt: https://x.com/TradingWizardAi/status/2054544916911460439
+- Day 3 — PLTR BUY 1D: entry 137.05, stop 128.5, target 158, confidence 65/100, result -5.11%. Receipt: https://x.com/TradingWizardAi/status/2054907946430083155
+- Day 4 — MA BUY 1D: entry 504.13, stop 489.5, target 535, confidence 82/100, result -2.9%. Receipt: https://x.com/TradingWizardAi/status/2055270289890533734
+
+Use exact numbers only from the JSON/CSV receipts. Do not infer win rates or future performance.

@@ -1,0 +1,5 @@
+publicDay,date,asset,botName,direction,timeframe,entry,stop,target,confidence,exit,resultPercent,resultType,executionBackend,publicReceiptUrl
+1,2026-05-12,WMT,Walmart Stable,BUY,1D,131.3252,126.5,140,55,126.42,-3.74,verified_loss,unknown,https://x.com/TradingWizardAi/status/2054201521168945535
+2,2026-05-13,V,Visa Growth,BUY,1D,318.79,326.5,360,45,326.39,2.38,verified_closed_win_trailing_stop,paper,https://x.com/TradingWizardAi/status/2054544916911460439
+3,2026-05-14,PLTR,Palantir Position,BUY,1D,137.05,128.5,158,65,130.05,-5.11,verified_closed_loss,paper,https://x.com/TradingWizardAi/status/2054907946430083155
+4,2026-05-15,MA,Mastercard Growth,BUY,1D,504.13,489.5,535,82,489.49,-2.9,verified_closed_loss,paper,https://x.com/TradingWizardAi/status/2055270289890533734
