@@ -1,0 +1,70 @@
+// This Pine Script® code is subject to the Mozilla Public License 2.0 at https://mozilla.org/MPL/2.0/
+// TradingWizard 30-Day Public AI Trading Scanner Challenge
+// Purpose: mark the plan before the result. Entry, stop, target, confidence. No fake PnL.
+
+//@version=6
+indicator("Setup Receipt Template — Plan First", overlay=true, max_labels_count=20)
+
+showReceipt = input.bool(true, "Show setup receipt")
+setupName = input.string("30-Day Scanner Challenge", "Setup label")
+direction = input.string("BUY", "Direction", options=["BUY", "SELL", "WAIT"])
+status = input.string("OPEN SETUP", "Status", options=["OPEN SETUP", "CLOSED WIN", "CLOSED LOSS", "WAIT", "SKIPPED"])
+entry = input.float(0.0, "Entry", step=0.01)
+stop = input.float(0.0, "Stop / invalidation", step=0.01)
+target = input.float(0.0, "Target", step=0.01)
+confidence = input.int(50, "Confidence", minval=0, maxval=100)
+source = input.string("TradingWizard.ai proof challenge", "Source")
+note = input.string("Setup first. Story later.", "Note")
+
+validEntry = entry > 0
+validStop = stop > 0
+validTarget = target > 0
+
+entryColor = color.new(color.aqua, 0)
+stopColor = color.new(color.red, 0)
+targetColor = color.new(color.lime, 0)
+neutralColor = color.new(color.gray, 15)
+
+plot(validEntry ? entry : na, title="Entry", color=entryColor, linewidth=2, style=plot.style_linebr)
+plot(validStop ? stop : na, title="Stop / invalidation", color=stopColor, linewidth=2, style=plot.style_linebr)
+plot(validTarget ? target : na, title="Target", color=targetColor, linewidth=2, style=plot.style_linebr)
+
+var label entryLabel = na
+var label stopLabel = na
+var label targetLabel = na
+
+if barstate.islast
+    label.delete(entryLabel)
+    label.delete(stopLabel)
+    label.delete(targetLabel)
+    if validEntry
+        entryLabel := label.new(bar_index, entry, "ENTRY " + str.tostring(entry, format.mintick), style=label.style_label_left, textcolor=color.white, color=entryColor)
+    if validStop
+        stopLabel := label.new(bar_index, stop, "STOP " + str.tostring(stop, format.mintick), style=label.style_label_left, textcolor=color.white, color=stopColor)
+    if validTarget
+        targetLabel := label.new(bar_index, target, "TARGET " + str.tostring(target, format.mintick), style=label.style_label_left, textcolor=color.white, color=targetColor)
+
+statusColor = status == "CLOSED WIN" ? color.new(color.lime, 0) : status == "CLOSED LOSS" ? color.new(color.red, 0) : status == "OPEN SETUP" ? color.new(color.orange, 0) : neutralColor
+dirColor = direction == "BUY" ? color.new(color.lime, 0) : direction == "SELL" ? color.new(color.red, 0) : neutralColor
+
+var table receipt = table.new(position.top_right, 2, 8, border_width=1, frame_color=color.new(color.white, 75), border_color=color.new(color.white, 85))
+
+if barstate.islast and showReceipt
+    table.cell(receipt, 0, 0, "SETUP RECEIPT", text_color=color.white, bgcolor=color.new(color.black, 0))
+    table.cell(receipt, 1, 0, setupName, text_color=color.white, bgcolor=color.new(color.black, 0))
+    table.cell(receipt, 0, 1, "Direction", text_color=color.white, bgcolor=color.new(color.black, 15))
+    table.cell(receipt, 1, 1, direction, text_color=color.white, bgcolor=dirColor)
+    table.cell(receipt, 0, 2, "Status", text_color=color.white, bgcolor=color.new(color.black, 15))
+    table.cell(receipt, 1, 2, status, text_color=color.white, bgcolor=statusColor)
+    table.cell(receipt, 0, 3, "Entry", text_color=color.white, bgcolor=color.new(color.black, 15))
+    table.cell(receipt, 1, 3, validEntry ? str.tostring(entry, format.mintick) : "—", text_color=color.white, bgcolor=color.new(color.black, 25))
+    table.cell(receipt, 0, 4, "Stop", text_color=color.white, bgcolor=color.new(color.black, 15))
+    table.cell(receipt, 1, 4, validStop ? str.tostring(stop, format.mintick) : "—", text_color=color.white, bgcolor=color.new(color.black, 25))
+    table.cell(receipt, 0, 5, "Target", text_color=color.white, bgcolor=color.new(color.black, 15))
+    table.cell(receipt, 1, 5, validTarget ? str.tostring(target, format.mintick) : "—", text_color=color.white, bgcolor=color.new(color.black, 25))
+    table.cell(receipt, 0, 6, "Confidence", text_color=color.white, bgcolor=color.new(color.black, 15))
+    table.cell(receipt, 1, 6, str.tostring(confidence) + "/100", text_color=color.white, bgcolor=color.new(color.black, 25))
+    table.cell(receipt, 0, 7, source, text_color=color.silver, bgcolor=color.new(color.black, 35))
+    table.cell(receipt, 1, 7, note, text_color=color.silver, bgcolor=color.new(color.black, 35))
+
+alertcondition(validEntry and validStop and validTarget, title="Setup receipt ready", message="Setup receipt has entry, stop, target and confidence defined.")
