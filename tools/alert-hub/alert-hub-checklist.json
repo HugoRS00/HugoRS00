@@ -1,0 +1,79 @@
+{
+  "name": "TradingWizard crypto alert hub checklist",
+  "version": "2026-05-21",
+  "purpose": "Reject naked crypto pings before they become trades.",
+  "checks": [
+    {
+      "id": "trigger",
+      "question": "Does the alert say exactly what triggered?",
+      "pass": "Condition, asset, market and timeframe are visible.",
+      "fail": "The alert only says the asset moved."
+    },
+    {
+      "id": "freshness",
+      "question": "Can the trader see if the alert is stale?",
+      "pass": "First triggered, last triggered and stale state are visible.",
+      "fail": "The trader has to guess if the setup is still usable."
+    },
+    {
+      "id": "decision",
+      "question": "Is the decision explicit?",
+      "pass": "BUY, SELL, WAIT or REVIEW is stated.",
+      "fail": "The alert creates urgency without a decision."
+    },
+    {
+      "id": "entry",
+      "question": "Is the entry area defined?",
+      "pass": "Entry zone exists, or the no-entry reason is stated.",
+      "fail": "The alert pushes action without a plan."
+    },
+    {
+      "id": "stop",
+      "question": "Is invalidation defined before entry?",
+      "pass": "Stop or invalidation condition is visible.",
+      "fail": "Risk gets decided after the candle moves."
+    },
+    {
+      "id": "target",
+      "question": "Is the target or review level defined?",
+      "pass": "Target, review level or exit logic is visible.",
+      "fail": "The exit is hope."
+    },
+    {
+      "id": "confidence",
+      "question": "Does the alert rank quality?",
+      "pass": "Confidence score and short reason are visible.",
+      "fail": "Every alert feels equally important."
+    },
+    {
+      "id": "delivery",
+      "question": "Does route match urgency?",
+      "pass": "High-priority setups, review alerts and weak pings route differently.",
+      "fail": "Everything hits every channel."
+    },
+    {
+      "id": "paper_first",
+      "question": "Is live execution blocked until review?",
+      "pass": "Paper mode is default before live execution.",
+      "fail": "The alert can jump straight to live capital."
+    },
+    {
+      "id": "audit",
+      "question": "Can the setup be reviewed later?",
+      "pass": "Original alert, setup fields and later result are saved.",
+      "fail": "The signal disappears into chat history."
+    }
+  ],
+  "hard_rules": [
+    "No fake PnL.",
+    "No win-rate claims from one receipt.",
+    "No result claim before a trade closes.",
+    "WAIT is valid when confirmation is missing.",
+    "Paper-first before live execution."
+  ],
+  "tradingwizard_links": {
+    "article": "https://www.tradingwizard.ai/academy/crypto-alert-hub-software-features-active-traders-need",
+    "product": "https://www.tradingwizard.ai/?utm_source=github&utm_medium=alert_hub_test_kit&utm_campaign=30_day_public_ai_scanner_challenge",
+    "proof_ledger": "https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878"
+  }
+}

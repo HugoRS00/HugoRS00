@@ -36,6 +36,7 @@ Bots scan 100+ assets 24/7 so you don't stare at candles all day.
 - Receipts CSV: https://github.com/HugoRS00/HugoRS00/blob/main/proof/receipts.csv
 - Public proof ledger: https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878
 - TradingView setup receipt template: https://github.com/HugoRS00/HugoRS00/tree/main/tools/tradingview
+- Crypto alert hub test kit: https://github.com/HugoRS00/HugoRS00/tree/main/tools/alert-hub
 - TradingWizard: https://www.tradingwizard.ai/?utm_source=github_profile&utm_medium=readme&utm_campaign=30_day_public_ai_scanner_challenge
 - Ticker request issue: https://github.com/HugoRS00/HugoRS00/issues/1
 

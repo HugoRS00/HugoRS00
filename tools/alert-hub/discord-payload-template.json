@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "TradingWizard alert hub Discord payload template",
+  "version": "2026-05-21",
+  "event_type": "setup_card",
+  "example": {
+    "source": "TradingWizard terminal authenticated API",
+    "challenge": "30-Day Public AI Trading Scanner Challenge",
+    "symbol": "PEPE",
+    "market": "crypto",
+    "timeframe": "15m",
+    "decision": "WAIT",
+    "status": "Awaiting",
+    "triggered_at": "2026-05-20T07:22:06.998Z",
+    "last_updated_at": "2026-05-20T07:24:03.580Z",
+    "freshness": {
+      "last_triggered_seconds_ago": 120,
+      "stale_after_seconds": 900,
+      "state": "fresh"
+    },
+    "setup": {
+      "entry_zone": {
+        "min": 0.00000369,
+        "max": 0.0000037
+      },
+      "stop": 0.00000365,
+      "target": 0.00000385,
+      "confidence": 65,
+      "confidence_scale": "0-100",
+      "trade_likelihood_score": 42,
+      "trade_likelihood_label": "Possible",
+      "expected_rrr": 3,
+      "trend": "bullish",
+      "wave": "Wave 2 Correction",
+      "invalidation": "Breakout confirmation missing below daily pivot resistance."
+    },
+    "delivery": {
+      "primary_route": "terminal",
+      "discord_route": "log_only_until_confirmation",
+      "send_to_discord": false,
+      "cooldown_minutes": 30,
+      "reason": "WAIT state should be logged unless the trader explicitly wants review alerts."
+    },
+    "execution": {
+      "paper_first": true,
+      "live_execution_allowed": false,
+      "requires_human_review": true
+    },
+    "audit": {
+      "save_setup": true,
+      "track_later_result": true,
+      "do_not_claim_pnl_before_close": true,
+      "not_financial_advice": true
+    }
+  },
+  "required_fields": [
+    "source",
+    "symbol",
+    "market",
+    "timeframe",
+    "decision",
+    "triggered_at",
+    "setup.entry_zone",
+    "setup.stop",
+    "setup.target",
+    "setup.confidence",
+    "setup.invalidation",
+    "delivery.primary_route",
+    "execution.paper_first",
+    "audit.track_later_result"
+  ]
+}
