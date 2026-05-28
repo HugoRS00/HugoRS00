@@ -1,0 +1,11 @@
+id,control,question,pass_condition,fail_condition,max_score
+paper_first_mode,Paper-first mode,Can new strategies run in paper mode before live execution?,New strategies can run in paper mode before live execution.,The default path is live money.,3
+predefined_entry,Entry is defined before action,Does the bot give entry or entry zone before the trade?,Entry or entry zone is visible before action.,Entry is explained after the candle moves.,3
+predefined_invalidation,Stop/invalidation is defined,Does the bot define where the setup is wrong before entry?,Stop loss or invalidation is visible before entry.,Risk is decided after fear starts.,3
+target_or_review_level,Target or review level exists,Is the exit plan known before the trade?,Take-profit target or review level is visible before action.,The target is let it run with no rule.,3
+confidence_with_reason,Confidence has a reason,Does confidence include setup context?,Confidence score includes setup context or signal rationale.,Every alert feels equally urgent.,3
+stale_signal_rejection,Stale signals are rejected,Do old payloads expire or move to review?,Signals have freshness windows and stale-state handling.,Late alerts still trigger trades.,3
+position_size_cap,Position size is capped,Is max risk per setup enforced?,The workflow enforces max risk per setup.,Size changes with emotion or hype.,3
+daily_kill_switch,Daily kill switch exists,Can the bot pause after loss or error limits?,Bot can pause after daily loss error or drawdown limits.,Losing streaks keep firing.,3
+paper_live_drift_audit,Paper/live drift is audited,Are slippage fills and rejected orders logged?,Slippage fills rejected orders and timing are logged.,Paper wins silently become live losses.,3
+receipt_audit_trail,Receipts survive the trade,Are setup result and no-trade decisions saved?,Setup result and no-trade decisions are saved for review.,The signal disappears into Discord history.,3

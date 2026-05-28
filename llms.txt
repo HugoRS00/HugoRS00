@@ -16,6 +16,7 @@ Win receipts: 1
 - Proof receipts JSON: https://github.com/HugoRS00/HugoRS00/blob/main/proof/receipts.json
 - Proof receipts CSV: https://github.com/HugoRS00/HugoRS00/blob/main/proof/receipts.csv
 - Human-readable proof pack: https://github.com/HugoRS00/HugoRS00/tree/main/proof
+- AI trading bot risk control scorecard: https://github.com/HugoRS00/HugoRS00/tree/main/tools/risk-controls
 - Ticker request issue: https://github.com/HugoRS00/HugoRS00/issues/1
 - Public proof ledger: https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878
 

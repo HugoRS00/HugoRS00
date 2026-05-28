@@ -1,0 +1,151 @@
+{
+  "name": "AI Trading Bot Risk Control Scorecard",
+  "version": "2026-05-28",
+  "source": "TradingWizard 30-Day Public AI Trading Scanner Challenge",
+  "scoring": {
+    "0": "missing",
+    "1": "manual only",
+    "2": "visible, but not enforced",
+    "3": "enforced and receipt-backed"
+  },
+  "verdicts": [
+    {
+      "min": 24,
+      "max": 30,
+      "verdict": "usable for serious paper testing"
+    },
+    {
+      "min": 18,
+      "max": 23,
+      "verdict": "paper-only"
+    },
+    {
+      "min": 10,
+      "max": 17,
+      "verdict": "scanner, not a bot"
+    },
+    {
+      "min": 0,
+      "max": 9,
+      "verdict": "noise"
+    }
+  ],
+  "controls": [
+    {
+      "id": "paper_first_mode",
+      "control": "Paper-first mode",
+      "question": "Can new strategies run in paper mode before live execution?",
+      "passCondition": "New strategies can run in paper mode before live execution.",
+      "failSmell": "The default path is live money.",
+      "maxScore": 3
+    },
+    {
+      "id": "predefined_entry",
+      "control": "Entry is defined before action",
+      "question": "Does the bot give entry or entry zone before the trade?",
+      "passCondition": "Entry or entry zone is visible before action.",
+      "failSmell": "Entry is explained after the candle moves.",
+      "maxScore": 3
+    },
+    {
+      "id": "predefined_invalidation",
+      "control": "Stop/invalidation is defined",
+      "question": "Does the bot define where the setup is wrong before entry?",
+      "passCondition": "Stop loss or invalidation is visible before entry.",
+      "failSmell": "Risk is decided after fear starts.",
+      "maxScore": 3
+    },
+    {
+      "id": "target_or_review_level",
+      "control": "Target or review level exists",
+      "question": "Is the exit plan known before the trade?",
+      "passCondition": "Take-profit target or review level is visible before action.",
+      "failSmell": "The target is 'let it run' with no rule.",
+      "maxScore": 3
+    },
+    {
+      "id": "confidence_with_reason",
+      "control": "Confidence has a reason",
+      "question": "Does confidence include setup context?",
+      "passCondition": "Confidence score includes setup context or signal rationale.",
+      "failSmell": "Every alert feels equally urgent.",
+      "maxScore": 3
+    },
+    {
+      "id": "stale_signal_rejection",
+      "control": "Stale signals are rejected",
+      "question": "Do old payloads expire or move to review?",
+      "passCondition": "Signals have freshness windows and stale-state handling.",
+      "failSmell": "Late alerts still trigger trades.",
+      "maxScore": 3
+    },
+    {
+      "id": "position_size_cap",
+      "control": "Position size is capped",
+      "question": "Is max risk per setup enforced?",
+      "passCondition": "The workflow enforces max risk per setup.",
+      "failSmell": "Size changes with emotion or hype.",
+      "maxScore": 3
+    },
+    {
+      "id": "daily_kill_switch",
+      "control": "Daily kill switch exists",
+      "question": "Can the bot pause after loss or error limits?",
+      "passCondition": "Bot can pause after daily loss, error, or drawdown limits.",
+      "failSmell": "Losing streaks keep firing.",
+      "maxScore": 3
+    },
+    {
+      "id": "paper_live_drift_audit",
+      "control": "Paper/live drift is audited",
+      "question": "Are slippage, fills, and rejected orders logged?",
+      "passCondition": "Slippage, fills, rejected orders, and timing are logged.",
+      "failSmell": "Paper wins silently become live losses.",
+      "maxScore": 3
+    },
+    {
+      "id": "receipt_audit_trail",
+      "control": "Receipts survive the trade",
+      "question": "Are setup, result, and no-trade decisions saved?",
+      "passCondition": "Setup, result, and no-trade decisions are saved for review.",
+      "failSmell": "The signal disappears into Discord history.",
+      "maxScore": 3
+    }
+  ],
+  "proofExamples": [
+    {
+      "id": "2026-05-26-wld-win-autopsy",
+      "asset": "WLD",
+      "execution": "paper",
+      "direction": "BUY",
+      "timeframe": "4H",
+      "entry": 0.29196,
+      "stop": 0.281,
+      "target": 0.325,
+      "exit": 0.3258,
+      "confidence": 45,
+      "resultPercent": 11.59,
+      "lesson": "The target was defined before greed showed up.",
+      "receiptUrl": "https://x.com/TradingWizardAi/status/2059618183569453235"
+    },
+    {
+      "id": "2026-05-23-link-loss-autopsy",
+      "asset": "LINK",
+      "execution": "paper",
+      "direction": "BUY",
+      "timeframe": "4H",
+      "entry": 9.8172,
+      "stop": 9.6,
+      "target": 10.24,
+      "confidence": 80,
+      "resultPercent": -2.46,
+      "lesson": "The loss was logged instead of rewritten.",
+      "receiptUrl": "https://x.com/TradingWizardAi/status/2057805714970616167"
+    }
+  ],
+  "links": {
+    "tradingWizard": "https://www.tradingwizard.ai/terminal?first_analysis=1&symbol=BTCUSDT&utm_source=github&utm_medium=risk_control_scorecard&utm_campaign=30_day_public_ai_scanner_challenge",
+    "proofLedger": "https://gist.github.com/HugoRS00/560a23c81086c8004646e80670f3e878"
+  },
+  "disclaimer": "Educational only. Not financial advice. No profit guarantee."
+}
